@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <select id="item1" onchange="myFunction()"> 
+        <option > choose</option>
+    </select>
+    <select id="item2">
+
+    </select>
+    <script>
+       var students = [
+        {id: 1, name: 'tran van a', className: '.net'},
+        {id: 2, name: 'tran van b', className: '.net'},
+        {id: 3, name: 'tran van c', className: 'angular'},
+        {id: 4, name: 'tran van d', className: 'angular'},
+        {id: 5, name: 'tran van e', className: 'java'},
+        {id: 6, name: 'tran van f', className: 'java'},
+        {id: 7, name: 'tran van g', className: 'java'},
+        {id: 8, name: 'tran van h', className: 'test'},
+        {id: 9, name: 'tran van i', className: 'test'},
+        {id: 10, name: 'tran van j', className: 'test'}
+        ];
+        var myClass=[];
+        students.forEach(students => {
+            if (myClass.lastIndexOf(students.className) == -1)
+                myClass.push(students.className);
+        });
+        myClass.forEach(className => {
+                document.getElementById("item1").innerHTML+= '<option value="' + className + '">' + className + '</option>';
+
+        });
+        function myFunction(){
+            item2.innerHTML="";
+            students.forEach(students =>
+            {
+                if(students.className == item1.value)   
+                document.getElementById("item2").innerHTML+= '<option value="' + students.name + '">' + students.name + '</option>';
+            }
+            
+            );
+
+            }
+    </script>
+</body>
+</html>
